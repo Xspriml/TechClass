@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Zesty Restaurant </title> 
+	<link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
+	<style>
+	body{
+		font-family: 'Caveat Brush', cursive;
+	}
+
+	#pagewrap{
+		padding: 5px;
+		width: 960px;
+		margin: 20px auto;
+	}
+	header{
+		height: 100px;
+		padding: 0 15px;
+	}
+	#content{
+		width: 290px;
+		clear: left;
+		float: left;
+		padding: 5px 15px;
+	}
+	#middle{
+		width: 294px;
+		float: left;
+		padding: 5px 15px;
+		margin: 0px 5px 5px 5px;
+	}
+
+	#sidebar{
+		width: 270px;
+		padding: 5px 15px;
+		float: left;
+	}
+
+	footer{
+		clear: both;
+		padding: 0 15px;
+	}
+
+	/**MEDIA QUERIES**/
+
+	/* For 980px or less*/
+
+	@media screen and (max-width: 980px){
+
+		#pagewrap{
+			width: 94%;
+		}
+		#content{
+			width: 41%;
+			padding: 1% 4%;
+		}
+		#middle{
+			width: 41%;
+			padding: 1% 4%;
+			margin: 0px 0px 5px 5px;
+			float: right;
+		}
+
+		header, footer {
+			padding: 1% 4%;
+		}
+	}
+
+/* For 600px or less*/
+@media screen and (max-width: 600px){
+
+	#content{
+		width: auto;
+		float: none;
+	}
+	#middle{
+		width: auto;
+		float: none;
+		margin-left: 0px;
+	}
+	#sidebar{
+		width: auto;
+		float: none;
+	}
+}
+
+/* For 480px or less*/ 
+@media screen and (max-width: 480px){
+
+	header{
+		height: auto;
+	}
+	h1{
+		font-size: 2em;
+	}
+	#sidebar{
+		display: none;
+	}
+}
+
+	#content{
+		background: #c0ff93;
+	}
+	#sidebar{
+		background: #c0ff93;
+	}
+	header, #content, #middle, #sidebar{
+		margin-bottom: 5px;
+	}
+	#pagewrap, header, #content, #middle, #sidebar, footer{
+		border: solid 1px #ccc;
+	}
+	</style>
+
+</head>
+<body>
+<div id = "pagewrap">
+	<header>
+		<h1> Appetizers and Sides </h1>
+		</header>
+
+		<section id = "content">
+			<h2> Nacho Salad </h2>
+			<p> 
+				Crispy nacho chips served with hot ground beef (with your choice of shreaded chicken or shrimp for one dollar extra), refried beans, sour cream, guacamole, lettuce, tomato, and sharp chedder cheese. Serves up to three people.
+			</p>
+
+			<p>
+				Cost: $5.59
+			</p>
+
+			<img src = "img/nachos.png" height ="175px" width = "200px">
+
+		</section>
+
+		<section id = "middle">
+			<h2> Mozzerella Sticks </h2>
+			<p> 
+				 Hot and gooey mozzerella cheese coated in a garlic-seasoned crust. Serves up two people and comes with marinara sauce.
+			</p>
+
+			<p>
+				Cost: $3.99
+			</p>
+			
+			<img src = "img/mozzarellasticks.jpg" height ="175px" width = "200px">		
+
+		</section>
+
+		<aside id = "sidebar">
+			
+			<h2> Potato Skin </h2>
+
+			<p>
+				 Crispy baked potato skins filled with melted chedder cheese, bacon, sour cream, and green onions that're bursting with flavor. Serves up to two people.
+			</p>
+
+			<p>
+				Cost: $4.99
+			</p>
+
+			<img src = "img/potatoskins.jpg" height ="175px" width = "200px">
+
+		</aside>
+
+		<section id = "content">
+			<h2> Side Salad </h2>
+
+			<p> 
+				House salad with lettuce, cherry tomatoes, cucumbers, sunflower seeds, red onions, chedder cheese, olives, crutons, and either ranch or vinagerette as the dressing.
+			</p>
+
+			<img src = "img/salad.jpg" height = "175px" width = "200px">
+		</section>
+	
+	<footer>
+	<h4> Footer </h4>
+	<p> Footer
+	</p>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Zesty Restaurant </title> 
+	<link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
+	<style>
+	body{
+		font-family: 'Caveat Brush', cursive;
+	}
+
+	#pagewrap{
+		padding: 5px;
+		width: 960px;
+		margin: 20px auto;
+	}
+	header{
+		height: 100px;
+		padding: 0 15px;
+	}
+	#content{
+		width: 290px;
+		clear: left;
+		float: left;
+		padding: 5px 15px;
+	}
+	#middle{
+		width: 294px;
+		float: left;
+		padding: 5px 15px;
+		margin: 0px 0px 5px 5px;
+	}
+
+	#sidebar{
+		width: 270px;
+		padding: 5px 15px;
+		float: left;
+	}
+
+	footer{
+		clear: both;
+		padding: 0 15px;
+	}
+
+	/**MEDIA QUERIES**/
+
+	/* For 980px or less*/
+
+	@media screen and (max-width: 980px){
+
+		#pagewrap{
+			width: 94%;
+		}
+		#content{
+			width: 41%;
+			padding: 1% 4%;
+		}
+		#middle{
+			width: 41%;
+			padding: 1% 4%;
+			margin: 0px 0px 5px 5px;
+			float: right;
+		}
+
+		header, footer {
+			padding: 1% 4%;
+		}
+	}
+
+/* For 600px or less*/
+@media screen and (max-width: 600px){
+
+	#content{
+		width: auto;
+		float: none;
+	}
+	#middle{
+		width: auto;
+		float: none;
+		margin-left: 0px;
+	}
+	#sidebar{
+		width: auto;
+		float: none;
+	}
+}
+
+/* For 480px or less*/ 
+@media screen and (max-width: 480px){
+
+	header{
+		height: auto;
+	}
+	h1{
+		font-size: 2em;
+	}
+	#sidebar{
+		display: none;
+	}
+}
+
+	#content{
+		background: #c0ff93;
+	}
+	#sidebar{
+		background: #c0ff93;
+	}
+	header, #content, #middle, #sidebar{
+		margin-bottom: 5px;
+	}
+	#pagewrap, header, #content, #middle, #sidebar, footer{
+		border: solid 1px #ccc;
+	}
+	</style>
+
+</head>
+<body>
+<div id = "pagewrap">
+	<header>
+		<h1> Entrees </h1>
+		</header>
+
+		<section id = "content">
+			<h2> Chicken Alfredo </h2>
+			<p> 
+				Alfredo pasta topped with grilled chicken and parmesan cheese.
+			</p>
+
+			<p>
+				Cost: $9.99
+			</p>
+			<img src = "img/pasta.jpg" height ="175px" width = "200px">
+		</section>
+
+		<section id = "middle">
+			<h2> Potato Casserole </h2>
+			<p> 
+				 Potato casserole with chedder cheese, bacon bits, and chives decorating the top of the dish.
+			</p>
+
+			<p>
+				Cost: $7.99
+			</p>
+			<img src = "img/casserole.jpg" height ="175px" width = "200px">
+		</section>
+
+		<aside id = "sidebar">
+			
+			<h2> Hummus and Chips </h2>
+
+			<p>
+				 Famous zesty garlic and lemon hummus with pita chips to dip with. 
+			</p>
+
+			<p>
+				Cost: $5.99
+			</p>
+			<img src = "img/humus.jpg" height ="175px" width = "200px">
+		</aside>
+
+
+		<section id = "content">
+			<h2> Panned Pizza </h2>
+			<p> 
+				 Personal sized, deep dish Chicago-styled pizza with your choice of any the following toppings: 
+				 Pepperoni,
+				 Sausage,
+				 Ham,
+				 Bacon,
+				 Grilled Chicken,
+				 Mushrooms,
+				 Bell Peppers,
+				 Olives,
+				 Pineapples,
+				 Spinach,
+				 Feta Cheese,
+				 No Cheese,
+				 Garlic Crust
+			</p>
+
+			<p>
+				Cost: $5.99
+			</p>
+			<img src = "img/pizza.jpg" height ="175px" width = "200px">
+		</section>
+
+	<footer>
+	<h4> Footer </h4>
+	<p> Footer Text
+	</p>
+</footer>
+
+</div>
+</body>
+</html>
