@@ -2,37 +2,65 @@
 <html>
 <head>
 	<title>Forest Adventure</title>
+	<style>
+		body{
+			padding-bottom: 700px;
+			background-color: #b3d6b7; 
+			font-family: 'Macondo', cursive;
+		}
+		
+	div{
+    margin: auto;
+    width: 300px;
+    border: 3px solid green;
+    padding: 10px;
+} 
+
+#output{
+	text-align: center;
+}
+
+#input{
+	text-align: center;
+	margin-left: 30px;
+}
+	
+	</style>
 </head>
 <body>
+<div>
+
 <img src = "" width = "300px" height = "267px">
 <p id = "output"> </p>
 <input id = "input" type = "text" placeholder = "Enter your action...">
-<button> Enter </button>
 
+<button> Enter </button>
+</div>
 <script>
+
 var map = [];
 
-map[0] = "An old stone keep";
-map[1] = "A deep well";
-map[2] = "A sunny glade";
-map[3] = "A sleeping dragon"; 
-map[4] = "A narrow pathway";
-map[5] = "An ancient gate";
-map[6] = "The edge of a river";
-map[7] = "A lonely wooden bench";
-map[8] = "An isolated cottage. Faint music can be heard within";
+map[0] = "An old stone keep...";
+map[1] = "A deep well...";
+map[2] = "A mysterious glade...";
+map[3] = "A sleeping dragon..."; 
+map[4] = "A narrow pathway...";
+map[5] = "A strange gate...";
+map[6] = "The edge of a raging river...";
+map[7] = "A lonely wooden bench...";
+map[8] = "An isolated cottage. Faint music can be heard within...";
 var actionsIknow = ["north", "east", "south", "west", "take", "drop", "use"];
 
-var items = [];
-imgs[0] = "images/keep.png";
-imgs[1] = "images/well.png";
-imgs[2] = "images/glade.png";
-imgs[3] = "images/dragon.png";
-imgs[4] = "images/path.png";
-imgs[5] = "images/gate.png";
-imgs[6] = "images/river.png";
-imgs[7] = "images/bench.png";
-imgs[8] = "images/cottage.png";
+var imgs = [];
+imgs[0] = "images/tower.jpg";
+imgs[1] = "images/stonewell.jpg";
+imgs[2] = "images/glade.jpg";
+imgs[3] = "images/dragon.jpg";
+imgs[4] = "images/pathway.jpg";
+imgs[5] = "images/gate.jpg";
+imgs[6] = "images/river.jpg";
+imgs[7] = "images/bench.jpg";
+imgs[8] = "images/cottage.jpg";
 
 var blockedPathMessages = [];
 blockedPathMessages[0] = "It's too dangerous to go that way!";
@@ -63,9 +91,17 @@ var output = document.querySelector("#output");
 output.innerHTML = map[mapLocation];
 var input = document. querySelector("#input");
 
+
 var button = document.querySelector("button");
 button.style.cursor = "pointer";
 button.addEventListener("click", clickHandler, false);
+input.addEventListener("keyup", function(event){
+	event.preventDefault();
+	if (event.keyCode == 13) {
+		button.click();
+	}
+});
+
 var image = document.querySelector("img");
 
 //Funters for Game//
@@ -83,14 +119,14 @@ function playGame(){
 	action = "";
 
 	for(i = 0; i<actionsIknow.length; i++){
-		if(playerInput.indexOf(actionsIknow[i] !== -1)){
+		if(playerInput.indexOf(actionsIknow[i]) !== -1){
 			action = playerInput;
 			console.log("player's action: " + action);
 			break;
 		}
 	}
 	for(i=0; i< itemsIknow.length; i++){
-		if(playerInput.indexOf(itemsIknow[i]) !== -1){
+		if(mapLocation === itemsLocation[i]){
 			item = itemsIknow[i];
 			console.log("Player's item: " + item);
 		}
@@ -99,10 +135,10 @@ function playGame(){
 	switch(action)
 	{
 		case "north":
-		if(mapLocation >=3){
-			mapLocation -=3;
-		}else{
-			gameMessage = blockedPathMessages[mapLocation];
+			if(mapLocation >=3){
+				mapLocation -=3;
+			}else{
+				gameMessage = blockedPathMessages[mapLocation];
 		}
 		break;
 
@@ -139,7 +175,7 @@ function playGame(){
 			break;
 
 		case "use":
-			dropItem()
+			useItem()
 			break;
 
 		default:
@@ -196,6 +232,53 @@ function dropItem(){
 		}
 	}else{
 			gameMessage = "You're not carrying anything!";
+	}
+}
+
+function useItem(){
+	var backpackIndexNumber = backpack.indexOf(item);
+	if(backpackIndexNumber == -1){
+		gameMessage = "You're  not carrying it!";
+	}
+	if(backpack.length === 0){
+		gameMessage += "Your backpack is empty!";
+	}
+	if(backpackIndexNumber !== -1){
+		switch(item){
+			case "flute":
+			if(mapLocation === 8){
+				gameMessage = "Beautiful music fills the air...";
+				gameMessage += "A wizened old man steps outside";
+				gameMessage += " and gives you a sword";
+				items.push("sword");
+				itemsLocation.push(mapLocation);
+			}else{
+				gameMessage = "You try to play the flute...";
+				gameMessage += "but it makes no sound here";
+			}
+			break;
+		case "sword":
+		if(mapLocation === 3){
+			gameMessage = "You swing your sword and slay the dragon!"
+			gameMessage += "You saved the forest!"
+			}else{
+				gameMessage = "You swing the sword listlessly";
+			}
+			break;
+
+		case "stone":
+			if(mapLocation === 1){
+				gameMessage = "You drop the stone in well";
+				gameMessage += "A magical flute appears!";
+
+				backpack.splice(backpackIndexNumber, 1);
+				items.push("flute");
+				itemsLocation.push(mapLocation);
+			}else{
+				gameMessage = "You fumble with the stone in your pocket";
+			}
+			break;
+		}
 	}
 }
 
